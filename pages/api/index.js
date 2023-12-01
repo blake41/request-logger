@@ -6,7 +6,7 @@ export default function handler(req, res, next) {
   // console.log(Object.keys(req))
   // return res.status(200).json({ text:  });
   async function getURI(url) {
-    // console.log(`${url}`)
+    console.log(`${url}`)
     try {
       const response = await axios.get(url);
       if (response.status !== 200) {
@@ -21,7 +21,7 @@ export default function handler(req, res, next) {
       return res.status(500).json({ type: 'error', message: error.message });
     }
   } 
-  // console.log(`fuck from ${req.url}`)
+  console.log(`fuck from ${req.url}`)
   // console.log(`${req.body}`)
   // console.log(`${Object.keys(JSON.parse(req.body))}`)
   return getURI(JSON.parse(req.body)['my-url'])
