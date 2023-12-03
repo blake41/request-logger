@@ -14,6 +14,8 @@ export default function handler(req, res, next) {
         return res.status(response.status).json({ type: 'error', message: response.statusText });
       } else {
         console.log('200 response')
+        const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+        console.log(`${ip}`)
         res.json(JSON.stringify(response.data))
       }
     } catch (error) {
