@@ -6,7 +6,7 @@ export function middleware() {
 
     // const req = NextRequest
     // console.log(Object.keys(req))
-    console.log('middleware ran')
+    // console.log('middleware ran')
     // add the CORS headers to the response
     res.headers.append('Access-Control-Allow-Credentials', "true")
     res.headers.append('Access-Control-Allow-Origin', '*') // replace this your actual origin
@@ -15,6 +15,5 @@ export function middleware() {
         'Access-Control-Allow-Headers',
         'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
     )
-
     return res
 }

@@ -14,8 +14,6 @@ export default function handler(req, res, next) {
         return res.status(response.status).json({ type: 'error', message: response.statusText });
       } else {
         console.log('200 response')
-        const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-        console.log(`${ip}`)
         res.json(JSON.stringify(response.data))
       }
     } catch (error) {
@@ -23,7 +21,9 @@ export default function handler(req, res, next) {
       return res.status(500).json({ type: 'error', message: error.message });
     }
   } 
-  console.log(`fuck from ${req.url}`)
+  console.log(`request was from ${req.url}`)
+  const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+  console.log(`${ip}`)
   // console.log(`${req.body}`)
   // console.log(`${Object.keys(JSON.parse(req.body))}`)
   return getURI(JSON.parse(req.body)['my-url'])
