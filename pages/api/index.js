@@ -16,9 +16,3 @@ console.log(`${ip}`)
   // return getURI(JSON.parse(req.body)['my-url'])
   
   // return res.status(200)
-  
-
-  
-  
-  
-}
